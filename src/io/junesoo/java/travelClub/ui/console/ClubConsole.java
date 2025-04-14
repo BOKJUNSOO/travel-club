@@ -16,9 +16,9 @@ public class ClubConsole {
     public ClubConsole() {
         this.consoleUtil = new ConsoleUtil();
         // 이후 변경될 코드
-        this.clubService = new ClubServiceLogic(); // findAll method 사용 가능
+        // this.clubService = new ClubServiceLogic(); // findAll method 사용 가능
         // this.clubService = new ServiceLogicLifeCycler().getClubService();
-        // this.clubService = ServiceLogicLifeCycler.getUniqueInstance().getClubService();
+        this.clubService = ServiceLogicLifeCycler.getUniqueInstance().getClubService();
     }
     public void register() {
         //
