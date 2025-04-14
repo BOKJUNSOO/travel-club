@@ -34,13 +34,12 @@ public class ClubMenu {
                     console.findByName();
                     break;
                 case 5:
-                    //
+                    console.modify();
                     break;
                 case 6:
-                    //
+                    console.remove();
                     break;
                 case 0:
-                    //
                     return;
                 default:
                     System.out.println("Choose again");

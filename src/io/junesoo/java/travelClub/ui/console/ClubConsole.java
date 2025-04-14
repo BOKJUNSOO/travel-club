@@ -2,6 +2,7 @@ package io.junesoo.java.travelClub.ui.console;
 
 import io.junesoo.java.travelClub.entity.TravelClub;
 import io.junesoo.java.travelClub.service.ClubService;
+import io.junesoo.java.travelClub.service.ServiceLogicLifeCycler;
 import io.junesoo.java.travelClub.service.logic.ClubServiceLogic;
 import io.junesoo.java.travelClub.utill.ConsoleUtil;
 
@@ -15,7 +16,9 @@ public class ClubConsole {
     public ClubConsole() {
         this.consoleUtil = new ConsoleUtil();
         // 이후 변경될 코드
-        this.clubService = new ClubServiceLogic(); // findAll method 사용 가능
+        // this.clubService = new ClubServiceLogic(); // findAll method 사용 가능
+        // this.clubService = new ServiceLogicLifeCycler().getClubService();
+        this.clubService = ServiceLogicLifeCycler.getUniqueInstance().getClubService();
     }
     public void register() {
         //
@@ -32,7 +35,6 @@ public class ClubConsole {
             }
             // 새로운 클럽 이름과 인트로를 입력받음
             TravelClub newClub = new TravelClub(clubName,intro);
-            // 배열에 저장 - clubService 로직
             clubService.register(newClub);
             System.out.println("Registered Club :" + newClub.toString());
         }
